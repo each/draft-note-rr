@@ -51,7 +51,7 @@ While the DNS zone master file format has always allowed comments, there is
 no existing mechanism to preserve comments once the zone has been loaded
 into memory or converted to a binary representation. This note proposes a
 new RR type "NOTE", to be allocated from the Covert-RR type range proposed
-in (REFERENCE), so that confidential comments can be stored alongside zone
+in [@!I-D.krecicki-dns-covert], so that confidential comments can be stored alongside zone
 data and included in zone transfers when Covert semantics are supported.
 
 {mainmatter}
@@ -66,18 +66,18 @@ obliterate comments that were in the original zone files.  Secondary
 servers do not receive comment text when transferring zones from master
 servers.
 
-Comments can be stored in the zone as TXT RRs, which are backed up and
+Comments could be stored in the zone as TXT RRs, which are backed up and
 preserved across across zone transfers, but TXT records are available to
 any DNS query. Because zone file comments commonly include information
 about internal networks and/or personnel that could be of use to potential
 attackers, it is better for distribution of comment data to be restricted.
 
-A Covert Resource Record type, as proposed in (REFERENCE), could be used
-for the storage of private text infromation within zone data itself. This
-data could be transfered from primary to secondary servers when Covert
-semantics are supported, and but would be concealed from normal DNS queries
-(except from specific trusted DNS clients) and from secondary servers that
-do not signal their support of Covert data transfer.
+A Covert Resource Record type, as proposed in [@!I-D.krecicki-dns-covert],
+could be used for the storage of private text infromation within zone data
+itself. This data could be transfered from primary to secondary servers
+when Covert semantics are supported, and but would be concealed from normal
+DNS queries (except from specific trusted DNS clients) and from secondary
+servers that do not signal their support of Covert data transfer.
 
 This document proposes the allocation of a new RR type NOTE from the
 Covert-RR type range for this purpose. Comments that the operator wishes
