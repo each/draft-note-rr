@@ -13,4 +13,5 @@ $(DOCNAME).xml: $(DOCNAME).md
 	sed 's/@DOCNAME@/$(DOCNAME)-$(VERSION)/g' $< | mmark -2 > $@
 
 clean:
-	rm -f $(DOCNAME)-$(VERSION).txt $(DOCNAME).xml
+	rm -f $(DOCNAME)-$(VERSION).txt $(DOCNAME)-$(VERSION).html \
+		$(DOCNAME).xml
